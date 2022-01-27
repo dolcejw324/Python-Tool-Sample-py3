@@ -2,9 +2,17 @@
 reading shapefiles into memory and construct a set of Points, Polylines or Polygons.
 """
 import struct
+import random
+
 
 # constants for shape types
 SHP_TYPE_POINT,SHP_TYPE_LINE,SHP_TYPE_POLYGON = 1, 3, 5
+
+
+def get_random_color_name():
+    list_of_colors = ['black', 'red', 'green', 'yellow', 'purple']
+    return random.choice(list_of_colors)
+
 
 # Classes for Point, Polyline and Polygon
 class Point:
@@ -24,7 +32,7 @@ class Point:
     def __init__(self, x = 0.0, y = 0.0):
         self.x = x
         self.y = y
-        self.color = 'black'
+        self.color = get_random_color_name()
         
 class Polyline:
     """
@@ -43,7 +51,7 @@ class Polyline:
     def __init__(self, points= [], partsNum = 0):
         self.points = points
         self.partsNum = partsNum   
-        self.color = 'black'
+        self.color = get_random_color_name()
              
 class Polygon:
     """
@@ -62,7 +70,7 @@ class Polygon:
     def __init__(self, points= [], partsNum = 0):
         self.points = points
         self.partsNum = partsNum
-        self.color = 'black'
+        self.color = get_random_color_name()
 
     def getCentroid(self):
         """
